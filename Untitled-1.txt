@@ -1,0 +1,114 @@
+ <?php
+      try
+      {
+          $bdd = new PDO('mysql:host=localhost;dbname=vod', 'root', '');
+      }
+      catch(Exception $e)
+      {
+          echo 'Echec de la connexion à la base de données';
+          exit();
+      }
+
+      // --------------------------------
+// $NbrCol : le nombre de colonnes
+// $NbrLigne : calcul automatique a la FIN
+$NbrCol = 5;	// (par exemple)
+// --------------------------------
+// La requete (exemple) : toutes les "CHOSE" commençant par un "b", classées par ordre alphabétique.
+$query = "SELECT NOMS, ACTORS,YEAR,DIRECTORS,UPDATES FROM movies WHERE NOMS = ? AND ACTORS = ? AND YEAR = ? AND DIRECTORS = ? AND UPDATES = ? ORDER BY NOMS;";
+  try {
+  $pdo_select = $bdd->prepare($query);
+  $pdo_select->bindParam (":NOMS", $NOMS, PDO::PARAM_STR);
+  $pdo_select->bindParam (":ACTORS", $ACTORS, PDO::PARAM_STR);
+  $pdo_select->bindParam (":YEAR", $YEAR, PDO::PARAM_STR);
+  $pdo_select->bindParam (":DIRECTORS", $DIRECTORS, PDO::PARAM_STR);
+  $pdo_select->bindParam (":UPDATES", $UPDATES, PDO::PARAM_STR);
+	$pdo_select->execute(array($NOMS, $ACTORS, $YEAR, $DIRECTORS, $UPDATES));
+	$NbreData = $pdo_select->rowCount();	// nombre de cellules à remplir
+	$rowAll = $pdo_select->fetchAll();
+  } catch (PDOException $e){ echo 'Erreur SQL : '. $e->getMessage().'<br/>'; die(); }
+// --------------------------------
+// affichage
+$NbrLigne = 0;
+if ($NbreData != 0) {
+	$j = 1;
+?>
+        <table style="width: 100%;" cellspacing="0" cellpadding="0" border="1">
+          <tbody>
+          <tr>
+              <td>MOVIES<br />
+              </td>
+              <td>ACTORS<br />
+              </td>
+              <td>YEAR<br />
+              </td>
+              <td>DIRECTORS<br />
+              </td>
+              <td>UPDATES<br />
+              </td>
+            </tr>
+            <?php
+	foreach ( $rowAll as $row ) 
+	{
+		if ($j%$NbrCol == 1) {
+			$NbrLigne++;
+			$fintr = 0;
+?>		<tr>
+<?php		}
+?>
+			<td>
+<?php			// -------------------------
+      // DONNEES A AFFICHER dans la cellule
+      echo $row['NOMS'];
+      echo '<br/>';
+              ?>
+              </td>
+             			<td>
+<?php			// -------------------------
+      // DONNEES A AFFICHER dans la cellule
+      echo $row['ACTORS'];
+      echo '<br/>';
+              ?>
+              </td>
+              			<td>
+<?php			// -------------------------
+      // DONNEES A AFFICHER dans la cellule
+      echo $row['YEAR'];
+      echo '<br/>';
+              
+              ?>
+              </td>
+              			<td>
+<?php			// -------------------------
+      // DONNEES A AFFICHER dans la cellule
+      echo $row['DIRECTORS'];
+      echo '<br/>';
+              
+              ?>
+              </td>
+              			<td>
+<?php			// -------------------------
+      // DONNEES A AFFICHER dans la cellule
+      echo $row['UPDATES'];
+      echo '<br/>';
+              
+              ?>
+              </td>
+  <?php		if ($j%$NbrCol == 0) {
+			$fintr = 1;
+?>		</tr>
+<?php		}
+		$j++;
+	} // fin while
+	// fermeture derniere balise /tr
+	if ($fintr!=1) {
+?>		</tr>
+<?php	} ?>
+          </tbody>
+        </table>
+        <?php
+} else { ?>
+	pas de données à afficher
+<?php
+}
+?>

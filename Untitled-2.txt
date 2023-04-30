@@ -1,0 +1,125 @@
+            <?php 
+            try
+            {
+                $bdd = new PDO('mysql:host=localhost;dbname=vod', 'root', '');
+            }
+            catch(Exception $e)
+            {
+                echo 'Echec de la connexion à la base de données';
+                exit();
+            }
+            $sql = $bdd->prepare('SELECT * FROM movies');
+            $sql ->bindParam (":NOMS", $NOMS, PDO::PARAM_STR);
+            $sql -> execute(array($NOMS)); //Exécution de la requete 
+
+            while ($lignes = $sql -> fetch(PDO::FETCH_ASSOC)){
+              echo '<tr>';
+
+
+              echo '<td>'.'<a href="#">'.$lignes['NOMS'].'</a>'.'</td>';
+              echo '<td>'.$lignes['ACTORS'].'</td>';
+              echo '<td>'.$lignes['YEAR'].'</td>';
+              echo '<td>'.$lignes['DIRECTORS'].'</td>';
+              echo '<td>'.$lignes['UPDATES'].'</td>';
+            }
+            echo '</tr>';
+            ?>
+
+
+<?php
+//demarrage des sessions
+session_start();
+
+// Affichage des erreurs PHP
+error_reporting(E_ALL);
+ini_set('display-errors','on');
+try
+{
+    $bdd = new PDO('mysql:host=localhost;dbname=vod', 'root', '');
+}
+catch(Exception $e)
+{
+    echo 'Echec de la connexion à la base de données';
+    exit();
+}
+
+if (isset($_POST['formconnexion'])) {
+    $user = htmlspecialchars($_POST['user']);
+    $pass = $_POST['pass'];
+  if (!empty($user) AND !empty($pass)) {
+    $requser = $bdd->prepare("SELECT * FROM utilisateurs WHERE username =? AND password = ?");     
+    $requser->execute(array($user, $pass));
+    $userexist = $requser->rowCount();
+    # code...
+    if ($userexist == 1) {
+      $userinfo = $requser->fetch();
+      $_SESSION['id'] = $userinfo['id'];
+      $_SESSION['username'] = $userinfo['username'];
+      $_SESSION['password'] = $userinfo['password'];
+      header("Location: action_FR.php?id=".$_SESSION['id']);
+      # code...
+    }
+    else {
+      echo "Mauvais user ou password";
+    }
+  }
+  else {
+    echo "Tous les champs doivent être complétés.";
+  }
+  # code...
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+<?php
+//demarrage des sessions
+session_start();
+
+// Affichage des erreurs PHP
+error_reporting(E_ALL);
+ini_set('display-errors','on');
+try
+{
+    $bdd = new PDO('mysql:host=localhost;dbname=vod', 'root', '');
+}
+catch(Exception $e)
+{
+    echo 'Echec de la connexion à la base de données';
+    exit();
+}
+
+if (isset($_POST['formconnexion'])) {
+    $user = htmlspecialchars($_POST['username']);
+    $pass = $_POST['password'];
+  if (!empty($user) AND !empty($pass)) {
+    $requser = $bdd->prepare("SELECT * FROM utilisateurs WHERE username =? AND password = ?");     
+    $requser->execute(array($user, $pass));
+    $userexist = $requser->rowCount();
+    # code...
+    if ($userexist == 1) {
+      $userinfo = $requser->fetch();
+      $_SESSION['id'] = $userinfo['id'];
+      $_SESSION['username'] = $userinfo['username'];
+      $_SESSION['password'] = $userinfo['password'];
+      header("Location: action_FR.php?id=".$_SESSION['id']);
+      # code...
+    }
+    else {
+      echo "Mauvais user ou password";
+    }
+  }
+  else {
+    echo "Tous les champs doivent être complétés.";
+  }
+  # code...
+}
+?>

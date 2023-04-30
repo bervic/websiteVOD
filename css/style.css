@@ -1,0 +1,291 @@
+/*
+	tswtabs.css		1.2.1
+	Please use the CSS Menu Button Wizard at
+		https://www.thesitewizard.com/wizards/css-menu-buttons.shtml
+  to generate your own customized menu buttons.
+  
+  Menu horizontal
+*/
+
+#tswcsstabs ul {
+	margin: 0 ;
+	padding: 0 ;
+	list-style: none ;
+	display: inline ;
+}
+#tswcsstabs ul li {
+	margin: 0 ;
+  padding: 0 ;
+  padding-left: 10px;
+	display: inline ;
+	text-align: center ;
+	list-style: none ;
+	font-family: Arial, Helvetica, sans-serif ;
+}
+#tswcsstabs li a {
+	color: #000000 ;
+	background-color: #ffb200 ;
+	border: 1px outset #b37d00 ;
+	padding: 8px ;
+	text-decoration: none ;
+	display: inline ;
+}
+#tswcsstabs li a:hover {
+	color: #ffffff ;
+	background-color: #b37d00 ;
+}
+#tswcsstabs ul li a.active {
+	color: #ffffff ;
+	background-color: #b37d00 ;
+}
+
+#tswcsstabs {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#conteneur {
+  display: flex;
+  margin-top: 15px;
+}
+
+/* Menu vertical*/
+.element:nth-child(1) {
+  display: inline-block;
+  vertical-align: top;
+  background-color: #ff8d1b;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+.element:nth-child(1) ul {
+  padding:0;
+  margin:0;
+  list-style: none;
+  color:white;
+}
+
+.element:nth-child(1) ul li {
+  height:47px;
+padding-left:5px;
+padding-right: 50px;
+  line-height:47px;
+  border-bottom:1px dotted #ffffff;
+}
+
+.element:nth-child(1) ul li.active {
+  background:#b37d00;
+}
+
+.element:nth-child(1) ul li:hover {
+  background:#b37d00;     
+}
+
+.element:nth-child(1) ul li a {
+  color:white;
+  text-decoration:none;
+  font-family: 'Open Sans', sans-serif;
+  font-size:15px;
+  display:block;
+}
+
+/* French / english movies*/
+span {
+
+  vertical-align: top;
+  background-color: #000000;
+  list-style: none;
+  color:white;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  display: block;
+}
+
+
+span b {
+  height:40px;
+padding-left:5px;
+padding-right: 50px;
+  line-height:47px;
+  border-bottom:1px dotted #ffffff;
+  color:white;
+  text-decoration:none;
+  font-family: 'Open Sans', sans-serif;
+  font-size:15px;
+  display:block;
+}
+
+.element:nth-child(2)
+{
+  margin-top: 11px;
+  margin-left: 20px;
+}
+
+.element:nth-child(2)
+{
+    flex: 1;
+}
+
+
+
+
+
+
+/* connexion */ 
+body{
+  background: #eee;
+}
+#frm{
+  border: solid gray 1px;
+  width: 20%;
+  border-radius: 5px;
+  margin: 100px auto;
+  background: white;
+  padding: 50px;
+}
+#btn{
+  color: #fff;
+  background: #337ab7;
+  padding: 5px;
+  margin-left: 69%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+	tswtabs.css		1.2.1
+	Please use the CSS Menu Button Wizard at
+		https://www.thesitewizard.com/wizards/css-menu-buttons.shtml
+  to generate your own customized menu buttons.
+  
+  Menu horizontal
+
+
+#tswcsstabs ul {
+	margin: 0 ;
+	padding: 0 ;
+	list-style: none ;
+	display: inline ;
+}
+#tswcsstabs ul li {
+	margin: 0 ;
+  padding: 0 ;
+  padding-left: 10px;
+	display: inline ;
+	text-align: center ;
+	list-style: none ;
+	font-family: Arial, Helvetica, sans-serif ;
+}
+#tswcsstabs li a {
+	color: #000000 ;
+	background-color: #ffb200 ;
+	border: 1px outset #b37d00 ;
+	padding: 8px ;
+	text-decoration: none ;
+	display: inline ;
+}
+#tswcsstabs li a:hover {
+	color: #ffffff ;
+	background-color: #b37d00 ;
+}
+
+#tswcsstabs {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#conteneur {
+  display: flex;
+  margin-top: 15px;
+}
+
+ 
+.element:nth-child(1) {
+  display: inline-block;
+  vertical-align: top;
+  background-color: #ff8d1b;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+.element:nth-child(1) ul {
+  padding:0;
+  margin:0;
+  list-style: none;
+  color:white;
+}
+
+.element:nth-child(1) ul li {
+  height:47px;
+padding-left:5px;
+padding-right: 50px;
+  line-height:47px;
+  border-bottom:1px dotted #ffffff;
+}
+
+.element:nth-child(1) ul li.active {
+  background:#b37d00;
+}
+
+.element:nth-child(1) ul li:hover {
+  background:#b37d00;     
+}
+
+.element:nth-child(1) ul li a {
+  color:white;
+  text-decoration:none;
+  font-family: 'Open Sans', sans-serif;
+  font-size:15px;
+  display:block;
+}
+
+span {
+
+  vertical-align: top;
+  background-color: #000000;
+  list-style: none;
+  color:white;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  display: block;
+}
+
+
+span b {
+  height:40px;
+padding-left:5px;
+padding-right: 50px;
+  line-height:47px;
+  border-bottom:1px dotted #ffffff;
+  color:white;
+  text-decoration:none;
+  font-family: 'Open Sans', sans-serif;
+  font-size:15px;
+  display:block;
+}
+
+.element:nth-child(2)
+{
+  margin-top: 11px;
+  margin-left: 20px;
+}
+
+.element:nth-child(2)
+{
+    flex: 1;
+}
+
+*/
